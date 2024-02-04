@@ -1,0 +1,8 @@
+.cards {
+  font-family: Inter, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 29.05;
+  margin-top: 51px;
+  /*font-size 24px was too big for the card size */
+}

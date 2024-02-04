@@ -1,12 +1,3 @@
-.cards {
-  font-family: Inter, Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 900;
-  line-height: 29.05;
-  margin-top: 51px;
-  /*font-size 24px was too big for the card size */
-}
-
 .card__list {
   display: grid;
   justify-content: center;
@@ -63,57 +54,7 @@
   margin: 67px 0 0;
 }
 
-@media screen and (max-width: 910px) {
-  .page {
-    margin-right: 20px;
-    margin-left: 20px;
-  }
-}
-
 @media screen and (max-width: 480px) {
-  .header {
-    margin-top: 0;
-  }
-
-  .header__logo {
-    width: 126px;
-    height: 24px;
-    margin: 28px 0 32px 27px;
-  }
-
-  .profile {
-    flex-direction: column;
-  }
-
-  .profile__image {
-    margin: auto;
-  }
-
-  .profile__info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .profile__title {
-    font-size: 22px;
-    line-height: 26.63px;
-    margin: 30px 0 14px 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  .profile__subtitle {
-    width: 100%;
-    text-align: center;
-  }
-
-  .profile__add-button {
-    width: calc(100% - 19px);
-    margin: 36px auto;
-  }
-
   .cards {
     margin-top: 0;
   }
@@ -123,71 +64,7 @@
   }
 }
 
-@media screen and (max-width: 775px) {
-  .profile__info {
-    grid-template-columns: minmax(auto, 268px) auto;
-  }
-
-  .profile__title {
-    font-size: 30px;
-    width: 268px;
-    margin-right: 20px;
-    max-width: 400px;
-  }
-
-  .profile__subtitle {
-    font-size: 15px;
-  }
-
-  .profile__add-button {
-    width: 80px;
-    height: 50px;
-  }
-}
-
 @media screen and (max-width: 620px) {
-  .header {
-    margin-top: 0;
-  }
-
-  .header__logo {
-    margin: 28px 0 32px 27px;
-  }
-
-  .profile {
-    flex-direction: column;
-  }
-
-  .profile__image {
-    margin: auto;
-  }
-
-  .profile__info {
-    display: grid;
-  }
-
-  .profile__title {
-    font-size: 30px;
-    line-height: 26.63px;
-    margin: 30px 15px 14px 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  .profile__edit-button {
-    margin-top: 20px;
-  }
-
-  .profile__subtitle {
-    margin: auto;
-    max-width: 200px;
-  }
-
-  .profile__add-button {
-    width: 270px;
-    margin: 36px auto;
-  }
-
   .cards {
     margin-top: 0;
   }

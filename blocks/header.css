@@ -8,3 +8,25 @@
   width: 173px;
   height: 33px;
 }
+
+@media screen and (max-width: 480px) {
+  .header {
+    margin-top: 0;
+  }
+
+  .header__logo {
+    width: 126px;
+    height: 24px;
+    margin: 28px 0 32px 27px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .header {
+    margin-top: 0;
+  }
+
+  .header__logo {
+    margin: 28px 0 32px 27px;
+  }
+}

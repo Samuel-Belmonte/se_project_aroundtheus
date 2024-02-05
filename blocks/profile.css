@@ -9,7 +9,6 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  background-position: center;
   margin-right: 30px;
 }
 
@@ -26,8 +25,9 @@
   font-weight: 500;
   grid-area: title;
   margin: 0 18px 16px 0;
-  width: 375px;
+  max-width: 373px;
   align-self: center;
+  text-align: center;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -44,7 +44,7 @@
 }
 
 .profile__edit-button:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .profile__subtitle {
@@ -57,7 +57,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 365px;
+  max-width: 500px;
 }
 
 .profile__add-button {
@@ -66,45 +66,17 @@
   height: 50px;
   margin-left: auto;
   border: 2px solid #fff;
+  border-radius: 2px;
   cursor: pointer;
 }
 
 .profile__add-button:hover {
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
-@media screen and (max-width: 480px) {
-  .profile {
-    flex-direction: column;
-  }
-
-  .profile__image {
-    margin: auto;
-  }
-
-  .profile__info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .profile__title {
-    font-size: 22px;
-    line-height: 26.63px;
-    margin: 30px 0 14px 0;
-    display: flex;
-    justify-content: center;
-  }
-
+@media screen and (max-width: 860px) {
   .profile__subtitle {
-    width: 100%;
-    text-align: center;
-  }
-
-  .profile__add-button {
-    width: calc(100% - 19px);
-    margin: 36px auto;
+    max-width: 410px;
   }
 }
 
@@ -130,6 +102,12 @@
   }
 }
 
+@media screen and (max-width: 700px) {
+  .profile__subtitle {
+    max-width: 340px;
+  }
+}
+
 @media screen and (max-width: 620px) {
   .profile {
     flex-direction: column;
@@ -144,11 +122,8 @@
   }
 
   .profile__title {
-    font-size: 30px;
     line-height: 26.63px;
     margin: 30px 15px 14px 0;
-    display: flex;
-    justify-content: center;
   }
 
   .profile__edit-button {
@@ -163,5 +138,17 @@
   .profile__add-button {
     width: 270px;
     margin: 36px auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile__title {
+    font-size: 22px;
+    margin-right: 0;
+  }
+
+  .profile__subtitle {
+    text-align: center;
+    width: 100%;
   }
 }

@@ -92,13 +92,8 @@
     max-width: 400px;
   }
 
-  .profile__subtitle {
-    font-size: 15px;
-  }
-
   .profile__add-button {
     width: 80px;
-    height: 50px;
   }
 }
 
@@ -150,5 +145,7 @@
   .profile__subtitle {
     text-align: center;
     width: 100%;
+    font-size: 14px;
+    line-height: 16.94px;
   }
 }

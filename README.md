@@ -22,8 +22,8 @@ Good luck and have fun!
 
 Below are the two links provided explaining the project. My screen recording software doesn't allow for switching windows while recording so there are two videos one viewing the web page and one viewing the code.
 
-https://docs.google.com/document/d/19DwT0SY79nQS17awrAXHq2cSpDde1z9NF4_y2G3tW-A/edit?usp=drive_link
+https://drive.google.com/file/d/1CtTbxX7WdeuZ7YzqPjVHPn2z5HARdkP2/view?usp=drive_link
 
-https://docs.google.com/document/d/1KS6tXn4CC68fzXxC_eujXYO706UGzwDn7lN_fgmw6o4/edit?usp=drive_link
+https://drive.google.com/file/d/1OHCYwL5PzrPhns7ZX6pe4g-Kp2bb2dBw/view?usp=drive_link
 
 This Project 3 "Around The U.S." showcases my ability to create responsive web designs that look good on any size. It also shows my front-end capabilities. This project includes CSS, HTML, and Figma.

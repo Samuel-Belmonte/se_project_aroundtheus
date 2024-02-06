@@ -27,3 +27,5 @@ https://drive.google.com/file/d/1CtTbxX7WdeuZ7YzqPjVHPn2z5HARdkP2/view?usp=drive
 https://drive.google.com/file/d/1OHCYwL5PzrPhns7ZX6pe4g-Kp2bb2dBw/view?usp=drive_link
 
 This Project 3 "Around The U.S." showcases my ability to create responsive web designs that look good on any size. It also shows my front-end capabilities. This project includes CSS, HTML, and Figma.
+
+Link to site: https://samuel-belmonte.github.io/se_project_aroundtheus/

@@ -139,7 +139,15 @@
 @media screen and (max-width: 480px) {
   .profile__title {
     font-size: 22px;
-    margin-right: 0;
+    /*margin-right: 0;*/
+    max-width: 196px;
+    min-width: 196px;
+    margin: 20px auto 14px;
+  }
+
+  .profile__edit-button {
+    margin-left: -20px;
+    margin-top: -1px;
   }
 
   .profile__subtitle {
@@ -147,5 +155,9 @@
     width: 100%;
     font-size: 14px;
     line-height: 16.94px;
+  }
+
+  .profile__add-button {
+    width: 282px;
   }
 }

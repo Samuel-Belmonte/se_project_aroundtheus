@@ -149,7 +149,8 @@
 
   .profile__edit-button {
     margin-left: -20px;
-    margin-top: -1px;
+    width: 18px;
+    height: 18px;
   }
 
   .profile__subtitle {

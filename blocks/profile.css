@@ -100,7 +100,7 @@
 }
 
 @media screen and (max-width: 700px) {
-  .profile__subtitle {
+  .profile__description {
     max-width: 340px;
   }
 }
@@ -127,7 +127,7 @@
     margin-top: 20px;
   }
 
-  .profile__subtitle {
+  .profile__description {
     margin: auto;
     max-width: 200px;
   }
@@ -153,7 +153,7 @@
     height: 18px;
   }
 
-  .profile__subtitle {
+  .profile__description {
     text-align: center;
     width: 100%;
     font-size: 14px;

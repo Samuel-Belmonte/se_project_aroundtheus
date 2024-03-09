@@ -48,6 +48,11 @@ const addCardForm = addCardModal.querySelector(".modal__form");
 const cardTitleInput = addCardForm.querySelector(".modal__input_type_title");
 const cardUrlInput = addCardForm.querySelector(".modal__input_type_url");
 
+const previewImageModal = document.querySelector("#preview-image-modal");
+const previewImageCloseButton =
+  previewImageModal.querySelector(".modal__close");
+const previewImageTitle = document.querySelector(".modal__preview-title");
+const previewImageCard = document.querySelector(".modal__preview-image");
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
@@ -58,19 +63,15 @@ function getCardElement(cardData) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
   const deleteButton = cardElement.querySelector(".card__delete-button");
-  //find delete button
   deleteButton.addEventListener("click", () => {
     cardElement.remove();
   });
-  //add event listener to the delete button
-  //call cardElement.remove() when it gets clicked like below
-
-  //add click listener to the cardImage element (modal)
-  //openModal function with previewImageModal
-  //will need to change image source and title
-
-  //use visibiliy hidden and not display none
-
+  cardImageEl.addEventListener("click", () => {
+    openModal(previewImageModal);
+    previewImageTitle.textContent = cardData.name;
+    previewImageCard.alt = cardData.name;
+    previewImageCard.src = cardData.link;
+  });
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
   });
@@ -140,9 +141,7 @@ addCardCloseButton.addEventListener("click", () => {
 
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
-/*const likeButtons = document.querySelectorAll(".card__like-button");
-likeButtons.forEach((likeButton) => {
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
-});*/
+//preview image modal
+previewImageCloseButton.addEventListener("click", () => {
+  closeModal(previewImageModal);
+});

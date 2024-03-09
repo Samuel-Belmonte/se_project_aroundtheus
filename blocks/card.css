@@ -8,8 +8,7 @@
 
 .card__delete-button {
   position: absolute;
-  background-image: transparent url(../images/trash.svg) center no-repeat;
-
+  background: transparent url(../images/trash.svg) center no-repeat;
   border: none;
   width: 18px;
   height: 19px;
@@ -27,6 +26,7 @@
   height: 282px;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  cursor: pointer;
 }
 
 .card__description {

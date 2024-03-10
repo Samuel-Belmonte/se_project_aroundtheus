@@ -134,6 +134,7 @@ initialCards.forEach((cardData) => {
 //add new card button
 addCardButton.addEventListener("click", () => {
   openModal(addCardModal);
+  addCardForm.reset();
 });
 addCardCloseButton.addEventListener("click", () => {
   closeModal(addCardModal);

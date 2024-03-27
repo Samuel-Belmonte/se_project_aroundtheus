@@ -114,10 +114,15 @@
   background-color: #fff;
   color: rgba(0, 0, 0, 0.2);
   border: rgba(0, 0, 0, 0.2) 1px solid;
+  cursor: default;
 }
 
-.modal__button:hover {
+.modal__button:hover:not(:disabled) {
   opacity: 80%;
+}
+
+.modal__button_disabled:hover {
+  opacity: 1;
 }
 
 .modal__image-container {

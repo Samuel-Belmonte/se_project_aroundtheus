@@ -68,7 +68,7 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
   cardImageEl.addEventListener("click", () => {
-    toggleModal(previewImageModal);
+    openModal(previewImageModal);
     previewImageTitle.textContent = cardData.name;
     previewImageCard.alt = cardData.name;
     previewImageCard.src = cardData.link;
@@ -82,8 +82,14 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeWithEscape);
+}
+
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeWithEscape);
 }
 
 function renderCard(cardData, wrapper) {
@@ -91,19 +97,10 @@ function renderCard(cardData, wrapper) {
   wrapper.prepend(cardElement);
 }
 
-function toggleModal(modal) {
-  if (modal.classList.contains("modal_opened")) {
-    document.removeEventListener("keydown", closeWithEscape);
-  } else {
-    document.addEventListener("keydown", closeWithEscape);
-  }
-  modal.classList.toggle("modal_opened");
-}
-
 function closeWithEscape(evt) {
   if (evt.key === "Escape") {
     const openModal = document.querySelector(".modal_opened");
-    toggleModal(openModal);
+    closeModal(openModal);
   }
 }
 
@@ -132,7 +129,7 @@ function handleAddCardFormSubmit(e) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
-  toggleModal(profileEditModal);
+  openModal(profileEditModal);
 });
 
 profileCloseButton.addEventListener("click", () =>
@@ -147,7 +144,7 @@ initialCards.forEach((cardData) => {
 
 //add new card button
 addCardButton.addEventListener("click", () => {
-  toggleModal(addCardModal);
+  openModal(addCardModal);
 });
 addCardCloseButton.addEventListener("click", () => {
   closeModal(addCardModal);
@@ -163,7 +160,7 @@ previewImageCloseButton.addEventListener("click", () => {
 const modals = document.querySelectorAll(".modal");
 
 modals.forEach((modal) => {
-  modal.addEventListener("click", (evt) => {
+  modal.addEventListener("mousedown", (evt) => {
     if (evt.target.classList.contains("modal")) {
       closeModal(modal);
     }

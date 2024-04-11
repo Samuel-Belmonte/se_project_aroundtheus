@@ -60,7 +60,7 @@ const previewImageCard = document.querySelector(".modal__preview-image");
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-function getCardElement(cardData) {
+/*function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
@@ -82,6 +82,16 @@ function getCardElement(cardData) {
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
   return cardElement;
+}*/
+
+function getCardElement(cardData) {
+  const getCard = new Card(
+    cardData.name,
+    cardData.link,
+    "#card-template",
+    handleImageClick
+  );
+  return getCard.getView();
 }
 
 function openModal(modal) {

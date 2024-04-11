@@ -89,9 +89,16 @@ function getCardElement(cardData) {
     cardData.name,
     cardData.link,
     "#card-template",
-    handleImageClick
+    handleImageClick()
   );
   return getCard.getView();
+}
+
+function handleImageClick(cardData) {
+  previewImageCard.setAttribute("src", cardData.link);
+  previewImageCard.setAttribute("alt", cardData.name);
+  previewImageTitle.textContent = cardData.name;
+  openModal(previewImageModal);
 }
 
 function openModal(modal) {

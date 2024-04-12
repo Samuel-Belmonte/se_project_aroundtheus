@@ -4,6 +4,8 @@
 
 import Card from "../components/Card.js";
 
+import FormValidator from "../components/FormValidator.js";
+
 /* -------------------------------------------------------------------------- */
 /*                                    Array                                   */
 /* -------------------------------------------------------------------------- */
@@ -193,3 +195,18 @@ modals.forEach((modal) => {
     }
   });
 });
+
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const profileFormValidator = new FormValidator(settings, profileEditForm);
+profileFormValidator.enableValidation();
+
+const addCardValidator = new FormValidator(settings, addCardForm);
+addCardValidator.enableValidation();

@@ -196,6 +196,7 @@ modals.forEach((modal) => {
   });
 });
 
+//Object for form
 const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
@@ -204,6 +205,10 @@ const settings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
+/* -------------------------------------------------------------------------- */
+/*                        Add Validation Class to Forms                       */
+/* -------------------------------------------------------------------------- */
 
 const profileFormValidator = new FormValidator(settings, profileEditForm);
 profileFormValidator.enableValidation();

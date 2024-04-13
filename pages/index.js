@@ -96,26 +96,31 @@ const previewImageCard = document.querySelector(".modal__preview-image");
   return cardElement;
 }*/
 
+//Create a new card
 function getCardElement(cardData) {
   const getCard = new Card(cardData, "#card-template", handleImageClick);
   return getCard.getView();
 }
 
+//Open modal
 function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeWithEscape);
 }
 
+//Close modal
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeWithEscape);
 }
 
+//Add created card
 function renderCard(cardData, wrapper) {
   const cardElement = getCardElement(cardData);
   wrapper.prepend(cardElement);
 }
 
+//Close modal with escape button
 function closeWithEscape(evt) {
   if (evt.key === "Escape") {
     const openModal = document.querySelector(".modal_opened");
@@ -196,7 +201,7 @@ modals.forEach((modal) => {
   });
 });
 
-//Object for form
+//For Validation Class
 const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",

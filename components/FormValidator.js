@@ -25,7 +25,7 @@ export default class FormValidator {
     if (!this._hasInvalidInput()) {
       this._enableButton();
     } else {
-      this._disableButton();
+      this.disableButton();
     }
   }
 
@@ -48,12 +48,7 @@ export default class FormValidator {
   }
 
   _hasInvalidInput() {
-    this._inputEls.every((inputEl) => !inputEl.validity.valid);
-  }
-
-  _disableButton() {
-    this._submitButton.classList.add(this._inactiveButtonClass);
-    this._submitButton.disabled = true;
+    return this._inputEls.some((inputEl) => !inputEl.validity.valid);
   }
 
   _enableButton() {
@@ -79,6 +74,11 @@ export default class FormValidator {
   /* -------------------------------------------------------------------------- */
   /*                               Public Methods                               */
   /* -------------------------------------------------------------------------- */
+
+  disableButton() {
+    this._submitButton.classList.add(this._inactiveButtonClass);
+    this._submitButton.disabled = true;
+  }
 
   enableValidation() {
     this._formElement.addEventListener("submit", (e) => {

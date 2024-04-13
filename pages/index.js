@@ -112,6 +112,7 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeWithEscape);
+  addCardForm.reset();
 }
 
 //Add created card
@@ -151,8 +152,8 @@ function handleAddCardFormSubmit(e) {
   const name = cardTitleInput.value;
   const link = cardUrlInput.value;
   renderCard({ name, link }, cardListEl);
-  closeModal(addCardModal);
   addCardForm.reset();
+  closeModal(addCardModal);
 }
 
 /* -------------------------------------------------------------------------- */

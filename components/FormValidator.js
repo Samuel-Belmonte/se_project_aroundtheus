@@ -16,8 +16,9 @@ export default class FormValidator {
   _checkInputValidity(inputEl) {
     if (!inputEl.validity.valid) {
       this._showInputError(inputEl, inputEl.validationMessage);
+    } else {
+      this._hideInputError(inputEl);
     }
-    this._hideInputError(inputEl);
   }
 
   _toggleButtonState() {
@@ -60,7 +61,7 @@ export default class FormValidator {
     this._submitButton.disabled = false;
   }
 
-  setEventListeners() {
+  _setEventListeners() {
     this._inputEls = [
       ...this._formElement.querySelectorAll(this._inputSelector),
     ];
@@ -83,7 +84,7 @@ export default class FormValidator {
     this._formElement.addEventListener("submit", (e) => {
       e.preventDefault();
     });
-    this.setEventListeners();
+    this._setEventListeners();
   }
 }
 

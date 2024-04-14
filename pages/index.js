@@ -153,7 +153,6 @@ function handleAddCardFormSubmit(e) {
   renderCard({ name, link }, cardListEl);
   addCardForm.reset();
   closeModal(addCardModal);
-  disableButton();
 }
 
 /* -------------------------------------------------------------------------- */

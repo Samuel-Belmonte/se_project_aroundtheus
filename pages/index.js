@@ -12,28 +12,28 @@ import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+    name: "Hanging Lake",
+    link: "https://media.cntraveler.com/photos/5bb4f467db225a4f50684c9f/master/w_1920%2Cc_limit/Hanging-Lake-GettyImages-688127462.jpg",
   },
   {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
+    name: "Oneonta Gorge",
+    link: "https://beautifuloregon.com/wp-content/uploads/2021/03/Oneonta-Gorge-Columbia-River-Gorge-Oregon-102-0142-533.jpg",
   },
   {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
+    name: "Antelope Canyon",
+    link: "https://detoursamericanwest.com/wp-content/uploads/2023/03/Antelope-Canyon-Tours-from-Phoenix-DETOURS-LP.jpg",
   },
   {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
+    name: "Kilauea",
+    link: "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/C5PGPXNRNFNP5P4YBQ3EIJNX5I.jpg",
   },
   {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+    name: "Mendenhall Ice Caves",
+    link: "https://media.cntraveler.com/photos/65486a46d7063616dabe4e7c/master/w_1920%2Cc_limit/Mendenhall%2520Glacier%2520kyson-dana-i0XNwkEnAWo-unsplash.jpg",
   },
   {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
+    name: "Niagara Falls",
+    link: "https://www.fodors.com/wp-content/uploads/2020/03/venti-views-mNs_6VmbaiA-unsplash.jpg",
   },
 ];
 
@@ -78,6 +78,7 @@ const settings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
 //Add Validation class to forms
 const profileFormValidator = new FormValidator(settings, profileEditForm);
 profileFormValidator.enableValidation();

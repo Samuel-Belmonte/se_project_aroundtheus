@@ -79,7 +79,9 @@ cardSection.renderItems();
 
 /*                            PopupWithImage Class                            */
 
-const imageModal = new PopUpWithImage("#preview-image-modal");
+const imageModal = new PopUpWithImage({
+  popupSelector: "#preview-image-modal",
+});
 imageModal.setEventListeners();
 
 function handleImageClick(data) {
@@ -89,11 +91,14 @@ function handleImageClick(data) {
 /*                             PopupWithForm Class                            */
 
 const profileEditPopup = new PopupWithForm(
-  profileEditModal,
+  { popupSelector: "#profile-edit-modal" },
   handleProfileEditSubmit
 );
 
-const addCardPopup = new PopupWithForm(addCardModal, handleAddCardFormSubmit);
+const addCardPopup = new PopupWithForm(
+  { popupSelector: "#card-add-modal" },
+  handleAddCardFormSubmit
+);
 
 function handleAddCardFormButton() {
   addCardPopup.open();
@@ -107,7 +112,10 @@ addCardButton.addEventListener("click", handleAddCardFormButton);
 
 /*                               UserInfo Class                               */
 
-const user = new Userinfo(profileTitle, profileDescription);
+const user = new Userinfo({
+  nameSelector: ".profile__title",
+  jobSelector: ".profile__description",
+});
 
 function handleProfileEditSubmit(data) {
   user.setUserInfo({ name: data.title, description: data.description });
@@ -196,9 +204,9 @@ function handleProfileSubmit(data) {
 
 // profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
-initialCards.forEach((cardData) => {
-  renderCard(cardData, cardListEl);
-});
+// initialCards.forEach((cardData) => {
+//   renderCard(cardData, cardListEl);
+// });
 
 //add new card button
 // addCardButton.addEventListener("click", () => {

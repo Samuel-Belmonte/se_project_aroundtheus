@@ -21,8 +21,7 @@ export default class Popup {
 
   //sets event listeners
   setEventListeners() {
-    this._popup.addEventListener("click", (e) => {
-      console.log(e.target);
+    this._popup.addEventListener("mousedown", (e) => {
       if (
         e.target.classList.contains("modal") ||
         e.target.classList.contains("modal__close")

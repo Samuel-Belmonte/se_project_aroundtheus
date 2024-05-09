@@ -45,7 +45,7 @@ import {
 /*                                  Classes                                   */
 /* -------------------------------------------------------------------------- */
 
-/*                                 Card Class                                 */
+/* ------------------------------- Card Class ------------------------------- */
 
 //Create a new card
 function getCardElement(cardData) {
@@ -53,13 +53,15 @@ function getCardElement(cardData) {
   return getCard.getView();
 }
 
-//Add created card
-function renderCard(cardData, wrapper) {
+// Add created card
+function renderCard(cardData) {
+  const getCard = new Card(cardData, "#card-template", handleImageClick);
   const cardElement = getCardElement(cardData);
-  wrapper.prepend(cardElement);
+  getCard.getView();
+  return cardElement;
 }
 
-/*                              Validation Class                              */
+/* ---------------------------- Validation Class ---------------------------- */
 
 //Add Validation class to forms
 const profileFormValidator = new FormValidator(settings, profileEditForm);
@@ -68,7 +70,7 @@ profileFormValidator.enableValidation();
 const addCardValidator = new FormValidator(settings, addCardForm);
 addCardValidator.enableValidation();
 
-/*                                Section Class                               */
+/* ------------------------------ Section Class ----------------------------- */
 
 const cardSection = new Section(
   { items: initialCards, renderer: getCardElement },
@@ -77,7 +79,7 @@ const cardSection = new Section(
 
 cardSection.renderItems();
 
-/*                            PopupWithImage Class                            */
+/* -------------------------- PopupWithImage Class -------------------------- */
 
 const imageModal = new PopUpWithImage({
   popupSelector: "#preview-image-modal",
@@ -88,11 +90,11 @@ function handleImageClick(data) {
   imageModal.open(data);
 }
 
-/*                             PopupWithForm Class                            */
+/* --------------------------- PopupWithForm Class -------------------------- */
 
 const profileEditPopup = new PopupWithForm(
   { popupSelector: "#profile-edit-modal" },
-  handleProfileEditSubmit
+  handleProfileSubmit
 );
 
 const addCardPopup = new PopupWithForm(
@@ -110,35 +112,39 @@ addCardPopup.setEventListeners();
 profileEditButton.addEventListener("click", handleFormButton);
 addCardButton.addEventListener("click", handleAddCardFormButton);
 
-/*                               UserInfo Class                               */
+/* ----------------------------- UserInfo Class ----------------------------- */
 
 const user = new Userinfo({
   nameSelector: ".profile__title",
   jobSelector: ".profile__description",
 });
 
-function handleProfileEditSubmit(data) {
-  user.setUserInfo({ name: data.title, description: data.description });
-  profileEditPopup.close();
-}
+// function handleProfileEditSubmit(user) {
+//   const name = cardTitleInput.textContent;
+//   const description = cardUrlInput.textContent;
+//   user.setUserInfo({ title: name, description: description });
+//   profileEditPopup.close();
+// }
 
-function handleAddCardFormSubmit(info) {
-  const name = info.title;
-  const link = info.url;
-  const card = getCardElement({ name, link });
-  cardSection.addItem(card);
+function handleAddCardFormSubmit() {
+  const name = cardTitleInput;
+  const link = cardUrlInput;
+  const data = { name, link };
+  renderCard(data, "cards__list");
+  addCardForm.reset();
+  // cardSection.addItem(card);
   addCardPopup.close();
 }
 
 function handleFormButton() {
   const userInformation = user.getUserInfo();
-  profileTitleInput.value = userInformation.name;
+  profileTitleInput.value = userInformation.title;
   profileDescriptionInput.value = userInformation.description;
   profileEditPopup.open();
 }
 
-function handleProfileSubmit(data) {
-  user.setUserInfo({ name: data.title, description: data.description });
+function handleProfileSubmit({ title, description }) {
+  user.setUserInfo({ title, description });
   profileEditPopup.close();
 }
 

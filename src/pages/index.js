@@ -97,17 +97,18 @@ const profileEditPopup = new PopupWithForm(
   handleProfileSubmit
 );
 
+profileEditPopup.setEventListeners();
+
 const addCardPopup = new PopupWithForm(
   { popupSelector: "#card-add-modal" },
   handleAddCardFormSubmit
 );
 
+addCardPopup.setEventListeners();
+
 function handleAddCardFormButton() {
   addCardPopup.open();
 }
-
-profileEditPopup.setEventListeners();
-addCardPopup.setEventListeners();
 
 profileEditButton.addEventListener("click", handleFormButton);
 addCardButton.addEventListener("click", handleAddCardFormButton);
@@ -126,14 +127,21 @@ const user = new Userinfo({
 //   profileEditPopup.close();
 // }
 
-function handleAddCardFormSubmit() {
-  const name = cardTitleInput;
-  const link = cardUrlInput;
-  const data = { name, link };
-  renderCard(data, "cards__list");
-  addCardForm.reset();
-  // cardSection.addItem(card);
-  addCardPopup.close();
+// function handleAddCardFormSubmit() {
+//   const name = cardTitleInput;
+//   const link = cardUrlInput;
+//   const data = { name, link };
+//   renderCard(data, "cards__list");
+//   addCardForm.reset();
+//   // cardSection.addItem(card);
+//   addCardPopup.close();
+// }
+
+function handleAddCardFormSubmit(data) {
+  const cardValue = renderCard(data);
+  cardSection.addItem(cardValue);
+  profileEditPopup.close();
+  return cardValue;
 }
 
 function handleFormButton() {

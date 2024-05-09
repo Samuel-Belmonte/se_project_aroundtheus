@@ -8,8 +8,7 @@ export default class Section {
   //renders all elements on the page
   renderItems() {
     this._items.forEach((item) => {
-      const cardElement = this._renderer(item);
-      this._container.append(cardElement);
+      this._renderer(item);
     });
   }
 

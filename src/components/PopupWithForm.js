@@ -11,7 +11,6 @@ export default class PopupWithForm extends Popup {
   }
 
   close() {
-    this._popupForm.reset();
     //super kind of like this but refers to parent class
     //closes the modal from the parent class
     super.close();

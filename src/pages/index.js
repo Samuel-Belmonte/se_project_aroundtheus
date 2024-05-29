@@ -17,27 +17,16 @@ import PopupWithForm from "../components/PopupWithForm.js";
 
 import Userinfo from "../components/UserInfo.js";
 
+import Api from "../components/Api.js";
+
 import {
   initialCards,
   profileEditButton,
-  profileEditModal,
-  profileCloseButton,
-  profileTitle,
-  profileDescription,
   profileTitleInput,
   profileDescriptionInput,
   profileEditForm,
-  cardListEl,
   addCardButton,
-  addCardModal,
-  addCardCloseButton,
   addCardForm,
-  cardTitleInput,
-  cardUrlInput,
-  previewImageModal,
-  previewImageCloseButton,
-  previewImageTitle,
-  previewImageCard,
   settings,
 } from "../utils/constants.js";
 
@@ -127,3 +116,12 @@ function handleProfileSubmit({ title, description }) {
   user.setUserInfo({ title, description });
   profileEditPopup.close();
 }
+
+/* -------------------------------- Api Class ------------------------------- */
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "c6c362c5-eda0-4373-9004-84a264f04392",
+    "Content-Type": "application/json",
+  },
+});

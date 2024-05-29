@@ -36,13 +36,6 @@ export const initialCards = [
 //Profile Modal
 export const profileEditButton = document.querySelector("#profile-edit-button");
 export const profileEditModal = document.querySelector("#profile-edit-modal");
-export const profileCloseButton = document.querySelector(
-  "#profile-close-button"
-);
-export const profileTitle = document.querySelector(".profile__title");
-export const profileDescription = document.querySelector(
-  ".profile__description"
-);
 export const profileTitleInput = document.querySelector("#profile-title-input");
 export const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
@@ -50,24 +43,9 @@ export const profileDescriptionInput = document.querySelector(
 export const profileEditForm = profileEditModal.querySelector(".modal__form");
 
 //Add Card Modal
-export const cardListEl = document.querySelector(".cards__list");
 export const addCardButton = document.querySelector(".profile__add-button");
 export const addCardModal = document.querySelector("#card-add-modal");
-export const addCardCloseButton = document.querySelector("#card-close-button");
 export const addCardForm = addCardModal.querySelector(".modal__form");
-export const cardTitleInput = addCardForm.querySelector(
-  ".modal__input_type_title"
-);
-export const cardUrlInput = addCardForm.querySelector(".modal__input_type_url");
-
-//Preview Image Modal
-export const previewImageModal = document.querySelector("#preview-image-modal");
-export const previewImageCloseButton =
-  previewImageModal.querySelector(".modal__close");
-export const previewImageTitle = document.querySelector(
-  ".modal__preview-title"
-);
-export const previewImageCard = document.querySelector(".modal__preview-image");
 
 //For Validation Class
 export const settings = {

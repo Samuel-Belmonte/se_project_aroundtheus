@@ -13,8 +13,8 @@ export default class UserInfo {
   }
 
   //takes new user data and adds it to the page
-  setUserInfo({ title, description }) {
-    this._name.textContent = title;
-    this._job.textContent = description;
+  setUserInfo({ name, about }) {
+    this._name.textContent = name;
+    this._job.textContent = about;
   }
 }

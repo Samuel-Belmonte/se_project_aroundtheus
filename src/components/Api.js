@@ -19,50 +19,61 @@ export default class Api {
     }).then(this._checkResponse);
   }
 
-  updateInfo() {
+  updateInfo(name, about) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
+      body: JSON.stringify({
+        name,
+        about,
+      }),
     }).then(this._checkResponse);
   }
 
-  updateAvatar() {
+  updateAvatar(link) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
+      body: JSON.stringify({
+        link,
+      }),
     }).then(this._checkResponse);
   }
 
   /* ------------------------------- Card Routes ------------------------------ */
-  getInitalCards() {
+  getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
-  addCard() {
+  addCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
+      body: JSON.stringify({
+        name,
+        link,
+      }),
     }).then(this._checkResponse);
   }
 
-  deleteCard() {
-    return fetch(`${this._baseUrl}/cards/:cardId`, {
+  deleteCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
-  likeCard() {
-    return fetch(`${this._baseUrl}/cards/:cardId/likes`, {
+  likeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
-  dislikeCard() {
-    return fetch(`${this._baseUrl}/cards/:cardId/likes`, {
+  dislikeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkResponse);

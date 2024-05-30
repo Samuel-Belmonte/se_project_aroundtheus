@@ -52,12 +52,7 @@ addCardValidator.enableValidation();
 
 /* ------------------------------ Section Class ----------------------------- */
 
-const cardSection = new Section(
-  { items: initialCards, renderer: renderCard },
-  ".cards__list"
-);
-
-cardSection.renderItems();
+const cardSection = new Section({ renderer: renderCard }, ".cards__list");
 
 /* -------------------------- PopupWithImage Class -------------------------- */
 
@@ -112,8 +107,10 @@ function handleFormButton() {
   profileEditPopup.open();
 }
 
-function handleProfileSubmit({ title, description }) {
-  user.setUserInfo({ title, description });
+function handleProfileSubmit({ name, about }) {
+  api.updateInfo(name, about).then((data) => {
+    user.setUserInfo(data);
+  });
   profileEditPopup.close();
 }
 
@@ -125,3 +122,19 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
+
+//Upload initial cards to the DOM
+api
+  .getInitialCards()
+  .then((cardData) => {
+    cardSection.renderItems(cardData);
+  })
+  .catch(console.error("Unsuccessful"));
+
+//Uploads user information from server to DOM
+api
+  .getUserInfo()
+  .then((userData) => {
+    user.setUserInfo(userData);
+  })
+  .catch(console.error("Unsuccessful"));

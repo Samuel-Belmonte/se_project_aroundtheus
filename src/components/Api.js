@@ -12,6 +12,10 @@ export default class Api {
     return Promise.reject(`Error: ${res.status}`);
   }
 
+  renderCards() {
+    Promise.all(this.getUserInfo(), this.getInitialCards());
+  }
+
   /* ------------------------------- User Routes ------------------------------ */
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {

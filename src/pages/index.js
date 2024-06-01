@@ -96,7 +96,11 @@ const user = new Userinfo({
 });
 
 function handleAddCardFormSubmit(data) {
-  renderCard({ name: data.title, link: data.link });
+  api.addCard(data.name, data.link).then((res) => {
+    renderCard(res);
+  });
+  //call render card in then statement
+  // renderCard({ name: data.title, link: data.link });
   addCardPopup.close();
 }
 

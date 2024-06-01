@@ -96,7 +96,7 @@ const user = new Userinfo({
 });
 
 function handleAddCardFormSubmit(data) {
-  api.addCard(data.name, data.link).then((res) => {
+  api.addCard(data.title, data.link).then((res) => {
     renderCard(res);
   });
   //call render card in then statement
@@ -142,3 +142,22 @@ api
     user.setUserInfo(userData);
   })
   .catch(console.error("Unsuccessful"));
+
+function handleLikeClick(card) {
+  if (card.isLiked) {
+    api
+      .dislikeCard(card.id)
+      .then(() => {
+        card.handleLikeButton();
+      })
+      .catch(console.error);
+  }
+  if (!card.isLiked) {
+    api
+      .likeCard(card.id)
+      .then(() => {
+        card.handleLikeButton();
+      })
+      .catch(console.error);
+  }
+}

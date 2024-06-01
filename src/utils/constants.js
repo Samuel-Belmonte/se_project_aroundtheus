@@ -2,32 +2,32 @@
 /*                                    Array                                   */
 /* -------------------------------------------------------------------------- */
 
-export const initialCards = [
-  {
-    name: "Hanging Lake",
-    link: "https://media.cntraveler.com/photos/5bb4f467db225a4f50684c9f/master/w_1920%2Cc_limit/Hanging-Lake-GettyImages-688127462.jpg",
-  },
-  {
-    name: "Oneonta Gorge",
-    link: "https://beautifuloregon.com/wp-content/uploads/2021/03/Oneonta-Gorge-Columbia-River-Gorge-Oregon-102-0142-533.jpg",
-  },
-  {
-    name: "Antelope Canyon",
-    link: "https://detoursamericanwest.com/wp-content/uploads/2023/03/Antelope-Canyon-Tours-from-Phoenix-DETOURS-LP.jpg",
-  },
-  {
-    name: "Kilauea",
-    link: "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/C5PGPXNRNFNP5P4YBQ3EIJNX5I.jpg",
-  },
-  {
-    name: "Mendenhall Ice Caves",
-    link: "https://media.cntraveler.com/photos/65486a46d7063616dabe4e7c/master/w_1920%2Cc_limit/Mendenhall%2520Glacier%2520kyson-dana-i0XNwkEnAWo-unsplash.jpg",
-  },
-  {
-    name: "Niagara Falls",
-    link: "https://www.fodors.com/wp-content/uploads/2020/03/venti-views-mNs_6VmbaiA-unsplash.jpg",
-  },
-];
+// export const initialCards = [
+//   {
+//     name: "Hanging Lake",
+//     link: "https://media.cntraveler.com/photos/5bb4f467db225a4f50684c9f/master/w_1920%2Cc_limit/Hanging-Lake-GettyImages-688127462.jpg",
+//   },
+//   {
+//     name: "Oneonta Gorge",
+//     link: "https://beautifuloregon.com/wp-content/uploads/2021/03/Oneonta-Gorge-Columbia-River-Gorge-Oregon-102-0142-533.jpg",
+//   },
+//   {
+//     name: "Antelope Canyon",
+//     link: "https://detoursamericanwest.com/wp-content/uploads/2023/03/Antelope-Canyon-Tours-from-Phoenix-DETOURS-LP.jpg",
+//   },
+//   {
+//     name: "Kilauea",
+//     link: "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/C5PGPXNRNFNP5P4YBQ3EIJNX5I.jpg",
+//   },
+//   {
+//     name: "Mendenhall Ice Caves",
+//     link: "https://media.cntraveler.com/photos/65486a46d7063616dabe4e7c/master/w_1920%2Cc_limit/Mendenhall%2520Glacier%2520kyson-dana-i0XNwkEnAWo-unsplash.jpg",
+//   },
+//   {
+//     name: "Niagara Falls",
+//     link: "https://www.fodors.com/wp-content/uploads/2020/03/venti-views-mNs_6VmbaiA-unsplash.jpg",
+//   },
+// ];
 
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
@@ -56,3 +56,6 @@ export const settings = {
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
+
+//Delete Card Modal
+// export const deleteCardButton = document.querySelector('.')

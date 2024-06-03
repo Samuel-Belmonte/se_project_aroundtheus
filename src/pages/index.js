@@ -37,7 +37,13 @@ import {
 /* ------------------------------- Card Class ------------------------------- */
 
 function renderCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick,
+    handleDeleteClick,
+    handleLikeClick
+  );
   cardSection.addItem(card.getView());
 }
 
@@ -99,8 +105,6 @@ function handleAddCardFormSubmit(data) {
   api.addCard(data.title, data.link).then((res) => {
     renderCard(res);
   });
-  //call render card in then statement
-  // renderCard({ name: data.title, link: data.link });
   addCardPopup.close();
 }
 
@@ -133,7 +137,9 @@ api
   .then((cardData) => {
     cardSection.renderItems(cardData);
   })
-  .catch(console.error("Unsuccessful"));
+  .catch((err) => {
+    console.log(err);
+  });
 
 //Uploads user information from server to DOM
 api
@@ -141,23 +147,31 @@ api
   .then((userData) => {
     user.setUserInfo(userData);
   })
-  .catch(console.error("Unsuccessful"));
+  .catch((err) => {
+    console.log(err);
+  });
 
 function handleLikeClick(card) {
   if (card.isLiked) {
     api
-      .dislikeCard(card.id)
+      .dislikeCard(card._id)
       .then(() => {
-        card.handleLikeButton();
+        card.handleLikeIcon();
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.log(err);
+      });
   }
   if (!card.isLiked) {
     api
-      .likeCard(card.id)
+      .likeCard(card._id)
       .then(() => {
-        card.handleLikeButton();
+        card.handleLikeIcon();
       })
-      .catch(console.error);
+      .catch(console.log(card));
   }
+}
+
+function handleDeleteClick(e) {
+  e.preventDefault();
 }

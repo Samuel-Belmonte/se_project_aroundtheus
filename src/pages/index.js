@@ -19,6 +19,8 @@ import Userinfo from "../components/UserInfo.js";
 
 import Api from "../components/Api.js";
 
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
+
 import {
   initialCards,
   profileEditButton,
@@ -151,6 +153,7 @@ api
     console.log(err);
   });
 
+//handler for like button
 function handleLikeClick(card) {
   if (card._isLiked) {
     api
@@ -174,6 +177,27 @@ function handleLikeClick(card) {
   }
 }
 
-function handleDeleteClick(e) {
-  e.preventDefault();
+//select the delete confirmation modal
+const deleteConfirmModal = new PopupWithConfirmation({
+  popupSelector: "#card-delete-modal",
+});
+
+//handler for delete modal to appear
+function handleDeleteClick(card) {
+  deleteConfirmModal.open();
+  deleteConfirmModal.handleDelete(() => {
+    api
+      .deleteCard(card._id)
+      .then(() => {
+        // card.handleDelete(card._id);
+        deleteConfirmModal.close();
+        card._handleDeleteCard();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
 }
+
+//adds close with esc and close button
+deleteConfirmModal.setEventListeners();

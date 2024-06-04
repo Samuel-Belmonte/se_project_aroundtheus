@@ -22,7 +22,6 @@ import Api from "../components/Api.js";
 import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 
 import {
-  initialCards,
   profileEditButton,
   profileTitleInput,
   profileDescriptionInput,
@@ -30,6 +29,8 @@ import {
   addCardButton,
   addCardForm,
   settings,
+  avatarButton,
+  avatarForm,
 } from "../utils/constants.js";
 
 /* -------------------------------------------------------------------------- */
@@ -57,6 +58,9 @@ profileFormValidator.enableValidation();
 
 const addCardValidator = new FormValidator(settings, addCardForm);
 addCardValidator.enableValidation();
+
+const avatarValidator = new FormValidator(settings, avatarForm);
+avatarValidator.enableValidation();
 
 /* ------------------------------ Section Class ----------------------------- */
 
@@ -89,6 +93,15 @@ const addCardPopup = new PopupWithForm(
 
 addCardPopup.setEventListeners();
 
+const avatarPopup = new PopupWithForm(
+  {
+    popupSelector: "#edit-avatar-modal",
+  },
+  handleAvatarSubmit
+);
+
+avatarPopup.setEventListeners();
+
 function handleAddCardFormButton() {
   addCardPopup.open();
 }
@@ -101,6 +114,7 @@ addCardButton.addEventListener("click", handleAddCardFormButton);
 const user = new Userinfo({
   nameSelector: ".profile__title",
   jobSelector: ".profile__description",
+  avatarSelector: ".profile__image",
 });
 
 function handleAddCardFormSubmit(data) {
@@ -201,3 +215,14 @@ function handleDeleteClick(card) {
 
 //adds close with esc and close button
 deleteConfirmModal.setEventListeners();
+
+function handleAvatarSubmit(data) {
+  api.updateAvatar(data.link).then((link) => {
+    user.setUserAvatar(link);
+  });
+  addCardPopup.close();
+}
+
+avatarButton.addEventListener("click", () => {
+  avatarPopup.open();
+});

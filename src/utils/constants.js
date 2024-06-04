@@ -2,7 +2,7 @@
 /*                                    Array                                   */
 /* -------------------------------------------------------------------------- */
 
-// export const initialCards = [
+//initialCards = [
 //   {
 //     name: "Hanging Lake",
 //     link: "https://media.cntraveler.com/photos/5bb4f467db225a4f50684c9f/master/w_1920%2Cc_limit/Hanging-Lake-GettyImages-688127462.jpg",
@@ -57,5 +57,6 @@ export const settings = {
   errorClass: "modal__error_visible",
 };
 
-//Delete Card Modal
-// export const deleteCardButton = document.querySelector('.')
+//Avatar Modal
+export const avatarButton = document.querySelector(".profile__image-hover");
+export const avatarForm = document.querySelector("#edit-avatar-form");

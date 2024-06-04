@@ -152,7 +152,7 @@ api
   });
 
 function handleLikeClick(card) {
-  if (card.isLiked) {
+  if (card._isLiked) {
     api
       .dislikeCard(card._id)
       .then(() => {
@@ -162,13 +162,15 @@ function handleLikeClick(card) {
         console.log(err);
       });
   }
-  if (!card.isLiked) {
+  if (!card._isLiked) {
     api
       .likeCard(card._id)
       .then(() => {
         card.handleLikeIcon();
       })
-      .catch(console.log(card));
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }
 

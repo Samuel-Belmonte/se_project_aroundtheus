@@ -59,8 +59,8 @@ profileFormValidator.enableValidation();
 const addCardValidator = new FormValidator(settings, addCardForm);
 addCardValidator.enableValidation();
 
-const avatarValidator = new FormValidator(settings, avatarForm);
-avatarValidator.enableValidation();
+// const avatarValidator = new FormValidator(settings, avatarForm);
+// avatarValidator.enableValidation();
 
 /* ------------------------------ Section Class ----------------------------- */
 

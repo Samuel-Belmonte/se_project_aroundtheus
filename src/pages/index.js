@@ -234,7 +234,7 @@ function handleAvatarSubmit(data) {
   api
     .updateAvatar(data)
     .then((res) => {
-      user.setUserAvatar(res);
+      user.setUserAvatar(res.avatar);
     })
     .catch((err) => {
       console.log(err);

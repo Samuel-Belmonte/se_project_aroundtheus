@@ -50,6 +50,8 @@ function renderCard(cardData) {
   cardSection.addItem(card.getView());
 }
 
+console.log(addCardForm);
+console.log(avatarForm);
 /* ---------------------------- Validation Class ---------------------------- */
 
 //Add Validation class to forms
@@ -58,9 +60,6 @@ profileFormValidator.enableValidation();
 
 const addCardValidator = new FormValidator(settings, addCardForm);
 addCardValidator.enableValidation();
-
-// const avatarValidator = new FormValidator(settings, avatarForm);
-// avatarValidator.enableValidation();
 
 /* ------------------------------ Section Class ----------------------------- */
 
@@ -118,9 +117,16 @@ const user = new Userinfo({
 });
 
 function handleAddCardFormSubmit(data) {
-  api.addCard(data.title, data.link).then((res) => {
-    renderCard(res);
-  });
+  addCardPopup.creating(true);
+  api
+    .addCard(data.title, data.link)
+    .then((res) => {
+      renderCard(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => addCardPopup.creating(false));
   addCardPopup.close();
 }
 
@@ -132,9 +138,16 @@ function handleFormButton() {
 }
 
 function handleProfileSubmit({ name, about }) {
-  api.updateInfo(name, about).then((data) => {
-    user.setUserInfo(data);
-  });
+  profileEditPopup.saving(true);
+  api
+    .updateInfo(name, about)
+    .then((data) => {
+      user.setUserInfo(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => profileEditPopup.saving(false));
   profileEditPopup.close();
 }
 
@@ -199,6 +212,7 @@ const deleteConfirmModal = new PopupWithConfirmation({
 //handler for delete modal to appear
 function handleDeleteClick(card) {
   deleteConfirmModal.open();
+  deleteConfirmModal.deleting(false);
   deleteConfirmModal.handleDelete(() => {
     api
       .deleteCard(card._id)
@@ -209,7 +223,8 @@ function handleDeleteClick(card) {
       })
       .catch((err) => {
         console.log(err);
-      });
+      })
+      .finally(deleteConfirmModal.deleting(true));
   });
 }
 
@@ -217,12 +232,19 @@ function handleDeleteClick(card) {
 deleteConfirmModal.setEventListeners();
 
 function handleAvatarSubmit(data) {
-  api.updateAvatar(data.link).then((link) => {
-    user.setUserAvatar(link);
-  });
+  avatarPopup.saving(true);
+  api
+    .updateAvatar(data.link)
+    .then((link) => {
+      user.setUserAvatar(link);
+    })
+    .finally(avatarPopup.false);
   addCardPopup.close();
 }
 
 avatarButton.addEventListener("click", () => {
   avatarPopup.open();
 });
+
+const avatarValidator = new FormValidator(settings, avatarForm);
+avatarValidator.enableValidation();

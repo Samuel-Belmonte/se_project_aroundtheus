@@ -4,6 +4,7 @@ export default class PopupWithConfirmation extends Popup {
   constructor({ popupSelector }) {
     super({ popupSelector });
     this._popupForm = this._popup.querySelector(".modal__form");
+    this._submitButton = this._popup.querySelector(".modal__button");
   }
 
   handleDelete(handleDeleteSubmit) {
@@ -17,4 +18,12 @@ export default class PopupWithConfirmation extends Popup {
       this._handleDeleteSubmit();
     });
   }
+
+  deleting = (deleting) => {
+    if (deleting) {
+      this._submitButton.textContent = "Deleting...";
+    } else {
+      this._submitButton.textContent = "Yes";
+    }
+  };
 }

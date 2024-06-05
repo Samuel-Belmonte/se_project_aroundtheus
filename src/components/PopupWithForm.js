@@ -8,13 +8,8 @@ export default class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit;
     this._inputValues = {};
     this._formInputs = this._popup.querySelectorAll(".modal__input");
+    this._submitButton = this._popup.querySelector(".modal__button");
   }
-
-  // close() {
-  //   //super kind of like this but refers to parent class
-  //   //closes the modal from the parent class
-  //   super.close();
-  // }
 
   _getInputValues() {
     this._formInputs.forEach((input) => {
@@ -35,4 +30,20 @@ export default class PopupWithForm extends Popup {
       this._popupForm.reset();
     });
   }
+
+  saving = (saving) => {
+    if (saving) {
+      this._submitButton.textContent = "Saving...";
+    } else {
+      this._submitButton.textContent = "Save";
+    }
+  };
+
+  creating = (creating) => {
+    if (creating) {
+      this._submitButton.textContent = "Creating...";
+    } else {
+      this._submitButton.textContent = "Create";
+    }
+  };
 }

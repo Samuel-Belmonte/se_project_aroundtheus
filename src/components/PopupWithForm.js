@@ -32,18 +32,10 @@ export default class PopupWithForm extends Popup {
   }
 
   saving = (saving) => {
-    if (saving) {
-      this._submitButton.textContent = "Saving...";
-    } else {
-      this._submitButton.textContent = "Save";
-    }
+    this._submitButton.textContent = saving ? "Saving..." : "Save";
   };
 
   creating = (creating) => {
-    if (creating) {
-      this._submitButton.textContent = "Creating...";
-    } else {
-      this._submitButton.textContent = "Create";
-    }
+    this._submitButton.textContent = creating ? "Creating..." : "Create";
   };
 }

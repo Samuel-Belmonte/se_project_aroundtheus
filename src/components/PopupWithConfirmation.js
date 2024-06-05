@@ -20,10 +20,6 @@ export default class PopupWithConfirmation extends Popup {
   }
 
   deleting = (deleting) => {
-    if (deleting) {
-      this._submitButton.textContent = "Deleting...";
-    } else {
-      this._submitButton.textContent = "Yes";
-    }
+    this._submitButton.textContent = deleting ? "Deleting..." : "Yes";
   };
 }

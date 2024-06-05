@@ -50,8 +50,6 @@ function renderCard(cardData) {
   cardSection.addItem(card.getView());
 }
 
-console.log(addCardForm);
-console.log(avatarForm);
 /* ---------------------------- Validation Class ---------------------------- */
 
 //Add Validation class to forms
@@ -234,12 +232,17 @@ deleteConfirmModal.setEventListeners();
 function handleAvatarSubmit(data) {
   avatarPopup.saving(true);
   api
-    .updateAvatar(data.link)
-    .then((link) => {
-      user.setUserAvatar(link);
+    .updateAvatar(data)
+    .then((res) => {
+      user.setUserAvatar(res);
     })
-    .finally(avatarPopup.false);
-  addCardPopup.close();
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      avatarPopup.saving(false);
+      avatarPopup.close();
+    });
 }
 
 avatarButton.addEventListener("click", () => {

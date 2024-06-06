@@ -173,6 +173,7 @@ api
   .getUserInfo()
   .then((userData) => {
     user.setUserInfo(userData);
+    user.setUserAvatar(userData.avatar);
   })
   .catch((err) => {
     console.log(err);
@@ -210,19 +211,21 @@ const deleteConfirmModal = new PopupWithConfirmation({
 //handler for delete modal to appear
 function handleDeleteClick(card) {
   deleteConfirmModal.open();
-  deleteConfirmModal.deleting(false);
   deleteConfirmModal.handleDelete(() => {
+    deleteConfirmModal.renderLoading(false);
     api
       .deleteCard(card._id)
       .then(() => {
         // card.handleDelete(card._id);
         deleteConfirmModal.close();
-        card._handleDeleteCard();
+        card.handleDeleteCard();
       })
       .catch((err) => {
         console.log(err);
       })
-      .finally(deleteConfirmModal.deleting(true));
+      .finally(() => {
+        deleteConfirmModal.renderLoading(true);
+      });
   });
 }
 
@@ -235,13 +238,13 @@ function handleAvatarSubmit(data) {
     .updateAvatar(data)
     .then((res) => {
       user.setUserAvatar(res.avatar);
+      avatarPopup.close();
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
       avatarPopup.saving(false);
-      avatarPopup.close();
     });
 }
 

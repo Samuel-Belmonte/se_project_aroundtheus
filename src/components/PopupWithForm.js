@@ -31,11 +31,11 @@ export default class PopupWithForm extends Popup {
     });
   }
 
-  saving = (saving) => {
+  renderSaving = (saving) => {
     this._submitButton.textContent = saving ? "Saving..." : "Save";
   };
 
-  creating = (creating) => {
+  renderCreating = (creating) => {
     this._submitButton.textContent = creating ? "Creating..." : "Create";
   };
 }

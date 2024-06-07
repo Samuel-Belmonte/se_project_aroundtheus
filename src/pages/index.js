@@ -115,7 +115,7 @@ const user = new Userinfo({
 });
 
 function handleAddCardFormSubmit(data) {
-  addCardPopup.creating(true);
+  addCardPopup.renderCreating(true);
   api
     .addCard(data.title, data.link)
     .then((res) => {
@@ -124,7 +124,7 @@ function handleAddCardFormSubmit(data) {
     .catch((err) => {
       console.log(err);
     })
-    .finally(() => addCardPopup.creating(false));
+    .finally(() => addCardPopup.renderCreating(false));
   addCardPopup.close();
 }
 
@@ -136,7 +136,7 @@ function handleFormButton() {
 }
 
 function handleProfileSubmit({ name, about }) {
-  profileEditPopup.saving(true);
+  profileEditPopup.renderSaving(true);
   api
     .updateInfo(name, about)
     .then((data) => {
@@ -145,7 +145,7 @@ function handleProfileSubmit({ name, about }) {
     .catch((err) => {
       console.log(err);
     })
-    .finally(() => profileEditPopup.saving(false));
+    .finally(() => profileEditPopup.renderSaving(false));
   profileEditPopup.close();
 }
 
@@ -231,7 +231,7 @@ function handleDeleteClick(card) {
 deleteConfirmModal.setEventListeners();
 
 function handleAvatarSubmit(data) {
-  avatarPopup.saving(true);
+  avatarPopup.renderSaving(true);
   api
     .updateAvatar(data)
     .then((res) => {
@@ -242,7 +242,7 @@ function handleAvatarSubmit(data) {
       console.log(err);
     })
     .finally(() => {
-      avatarPopup.saving(false);
+      avatarPopup.renderSaving(false);
     });
 }
 

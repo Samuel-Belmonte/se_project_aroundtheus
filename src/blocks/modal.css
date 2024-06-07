@@ -149,6 +149,10 @@
   height: 12px;
 }
 
+.modal__button-delete-card {
+  margin-top: 14px;
+}
+
 @media screen and (max-width: 565px) {
   .modal__close {
     top: -39px;

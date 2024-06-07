@@ -179,36 +179,12 @@ api
     console.log(err);
   });
 
-//handler for like button
-// function handleLikeClick(card) {
-//   if (card._isLiked) {
-//     api
-//       .dislikeCard(card._id)
-//       .then(() => {
-//         card.handleLikeIcon();
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   }
-//   if (!card._isLiked) {
-//     api
-//       .likeCard(card._id)
-//       .then(() => {
-//         card.handleLikeIcon();
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//   }
-// }
-
 function handleLikeClick(card) {
   if (card.isLiked()) {
     api
       .dislikeCard(card._id)
       .then((res) => {
-        card.setIsLiked(res._isLiked);
+        card.setIsLiked(res.isLiked);
       })
       .catch((err) => {
         console.log(err);
@@ -217,7 +193,7 @@ function handleLikeClick(card) {
     api
       .likeCard(card._id)
       .then((res) => {
-        card.setIsLiked(res._isLiked);
+        card.setIsLiked(res.isLiked);
       })
       .catch((err) => {
         console.log(err);

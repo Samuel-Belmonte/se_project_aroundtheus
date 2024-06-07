@@ -56,20 +56,13 @@ export default class Card {
     this._cardElement = null;
   }
 
-  //like function
-  // handleLikeIcon() {
-  //   this._cardElement
-  //     .querySelector(".card__like-button")
-  //     .classList.toggle("card__like-button_active");
-  // }
+  isLiked() {
+    return this._isLiked;
+  }
 
   setIsLiked(isLiked) {
     this._isLiked = isLiked;
     this._renderLikes();
-  }
-
-  isLiked() {
-    return this._isLiked;
   }
 
   _renderLikes() {

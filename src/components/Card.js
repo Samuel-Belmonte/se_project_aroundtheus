@@ -101,15 +101,7 @@ export default class Card {
     //set description
     this._cardElement.querySelector(".card__title").textContent = this._name;
 
-    if (this._isLiked === true) {
-      this._cardElement
-        .querySelector(".card__like-button")
-        .classList.add("card__like-button_active");
-    } else {
-      this._cardElement
-        .querySelector(".card__like-button")
-        .classList.remove("card__like-button_active");
-    }
+    this._renderLikes();
 
     //set event listeners
     this._setEventListeners();

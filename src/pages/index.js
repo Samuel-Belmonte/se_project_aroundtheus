@@ -78,14 +78,16 @@ function handleImageClick(data) {
 
 const profileEditPopup = new PopupWithForm(
   { popupSelector: "#profile-edit-modal" },
-  handleProfileSubmit
+  handleProfileSubmit,
+  "Saving..."
 );
 
 profileEditPopup.setEventListeners();
 
 const addCardPopup = new PopupWithForm(
   { popupSelector: "#card-add-modal" },
-  handleAddCardFormSubmit
+  handleAddCardFormSubmit,
+  "Creating..."
 );
 
 addCardPopup.setEventListeners();
@@ -94,7 +96,8 @@ const avatarPopup = new PopupWithForm(
   {
     popupSelector: "#edit-avatar-modal",
   },
-  handleAvatarSubmit
+  handleAvatarSubmit,
+  "Saving..."
 );
 
 avatarPopup.setEventListeners();
@@ -115,17 +118,18 @@ const user = new Userinfo({
 });
 
 function handleAddCardFormSubmit(data) {
-  addCardPopup.renderCreating(true);
+  addCardPopup.showLoading();
   api
     .addCard(data.title, data.link)
     .then((res) => {
       renderCard(res);
+      addCardPopup.close();
+      addCardForm.reset();
     })
     .catch((err) => {
       console.log(err);
     })
-    .finally(() => addCardPopup.renderCreating(false));
-  addCardPopup.close();
+    .finally(() => addCardPopup.hideLoading());
 }
 
 function handleFormButton() {
@@ -136,17 +140,18 @@ function handleFormButton() {
 }
 
 function handleProfileSubmit({ name, about }) {
-  profileEditPopup.renderSaving(true);
+  profileEditPopup.showLoading();
   api
     .updateInfo(name, about)
     .then((data) => {
       user.setUserInfo(data);
+      profileEditPopup.close();
+      profileEditForm.reset();
     })
     .catch((err) => {
       console.log(err);
     })
-    .finally(() => profileEditPopup.renderSaving(false));
-  profileEditPopup.close();
+    .finally(() => profileEditPopup.hideLoading());
 }
 
 /* -------------------------------- Api Class ------------------------------- */
@@ -210,7 +215,7 @@ const deleteConfirmModal = new PopupWithConfirmation({
 function handleDeleteClick(card) {
   deleteConfirmModal.open();
   deleteConfirmModal.handleDelete(() => {
-    deleteConfirmModal.renderLoading(false);
+    deleteConfirmModal.renderLoading(true);
     api
       .deleteCard(card._id)
       .then(() => {
@@ -222,7 +227,7 @@ function handleDeleteClick(card) {
         console.log(err);
       })
       .finally(() => {
-        deleteConfirmModal.renderLoading(true);
+        deleteConfirmModal.renderLoading(false);
       });
   });
 }
@@ -231,18 +236,19 @@ function handleDeleteClick(card) {
 deleteConfirmModal.setEventListeners();
 
 function handleAvatarSubmit(data) {
-  avatarPopup.renderSaving(true);
+  avatarPopup.showLoading();
   api
     .updateAvatar(data)
     .then((res) => {
       user.setUserAvatar(res.avatar);
       avatarPopup.close();
+      avatarForm.reset();
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      avatarPopup.renderSaving(false);
+      avatarPopup.hideLoading();
     });
 }
 

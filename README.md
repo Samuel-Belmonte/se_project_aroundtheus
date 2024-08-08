@@ -23,16 +23,9 @@ This project demonstrates my profieciency in creating responsive web designs tha
 ## Screenshots
 ![ATUS1](https://github.com/user-attachments/assets/58145e10-170b-405d-97ed-f1ff172e539f)
 
-![ATUS2](https://github.com/user-attachments/assets/7a1d9a80-dd41-4c71-baea-42c281e05777)
+![ATUS2](https://github.com/user-attachments/assets/a3ef4be3-1d27-4852-9d72-47d050370dd4)
 
-![ATUS3](https://github.com/user-attachments/assets/8309521e-cffb-4256-af9b-e547e97ecac0)
-
-![ATUS4](https://github.com/user-attachments/assets/b4f64e45-832c-4a5f-8d93-61c7ef9338ea)
-
-![ATUS5](https://github.com/user-attachments/assets/410368a1-ad09-433f-8d0e-e7d8e0e7e307)
-
-![ATUS6](https://github.com/user-attachments/assets/1320fe37-a390-4ace-a9c0-e545adfc77d9)
-
+![ATUS3](https://github.com/user-attachments/assets/7a8f06d2-cceb-4125-9c93-572d510780a9)
 
 ## Contact
 
@@ -41,8 +34,8 @@ For any questions or concerns, you can contact me @sambelmonte02@gmail.com
 
 ## Links
 
-[Live Server](https://samuel-belmonte.github.io/se_project_aroundtheus/)
+Link to Server --> [Here](https://samuel-belmonte.github.io/se_project_aroundtheus/)
 
-[Figma Design](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
+Link the Figma Design --> [Here](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
 
 
